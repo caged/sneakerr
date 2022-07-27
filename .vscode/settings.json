@@ -1,0 +1,13 @@
+{
+  "editor.formatOnSave": true,
+  "editor.lineNumbers": "off",
+  "editor.quickSuggestionsDelay": 100,
+  "editor.hover.enabled": false,
+  "gitlens.mode.active": "zen",
+  "breadcrumbs.enabled": false,
+  "workbench.activityBar.visible": false,
+  "workbench.statusBar.visible": false,
+  "github.copilot.enable": {
+    "*": false
+  }
+}
