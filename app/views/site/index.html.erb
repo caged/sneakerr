@@ -1,0 +1,11 @@
+<h1>Apple counter</h1>
+<div id="count">
+  <%= @count %> apples
+</div>
+<div class="flex gap-5">
+  <%= button_to 'Add', add_path, method: :post, class: 'p-2 bg-blue-400 rounded' %>
+  <%= button_to 'Remove', remove_path, method: :post, class: 'p-2 bg-blue-400 rounded' %>
+</div>
+<div id="log">
+
+</div>
