@@ -1,0 +1,32 @@
+<div id="<%= dom_id sneaker %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= sneaker.name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Brand:</strong>
+    <%= sneaker.brand %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Description:</strong>
+    <%= sneaker.description %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Price:</strong>
+    <%= sneaker.price %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Image:</strong>
+    <%= link_to sneaker.image.filename, sneaker.image if sneaker.image.attached? %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this sneaker", sneaker, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this sneaker', edit_sneaker_path(sneaker), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
