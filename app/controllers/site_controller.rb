@@ -1,4 +1,4 @@
-class SiteController < ApplicationController
+class SiteController < AuthedController
   before_action :set_count, only: [:index]
 
   def index 
