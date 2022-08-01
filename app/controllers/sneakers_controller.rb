@@ -1,4 +1,4 @@
-class SneakersController < ApplicationController
+class SneakersController < AuthedController
   before_action :set_sneaker, only: %i[ show edit update destroy ]
 
   # GET /sneakers or /sneakers.json

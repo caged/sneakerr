@@ -8,7 +8,7 @@
     <%= link_to 'New sneaker', new_sneaker_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
   </div>
 
-  <div id="sneakers" class="min-w-full">
+  <div id="sneakers" class="mt-10 grid grid-cols-3 gap-10">
     <%= render @sneakers %>
   </div>
 </div>
