@@ -16,6 +16,7 @@
       <h1 class="font-black text-3xl"><%= link_to 'Sneakerr', root_path, class: 'hover:text-blue-500' %></h1>
       <div class="flex text-sm gap-5">
         <% if signed_in? %>
+          <%= render 'carts/cart' %>
           <%= button_to 'Sign out', sign_out_path, method: :delete, class: 'hover:text-blue-500' %>
         <% else %>
           <%= link_to 'Sign Up', sign_up_path, class: 'hover:text-blue-500' %>

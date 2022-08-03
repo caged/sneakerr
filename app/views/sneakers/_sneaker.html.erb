@@ -14,4 +14,9 @@
       <p class="text-gray-700 text-sm"><%= sneaker.description %></p>
     </div>
   <% end %>
+  <div class="p-2 pt-0">
+    <%= button_to add_to_cart_path(sneaker), method: :post, class: 'btn-primary w-full' do %>
+      Add to cart
+    <% end %>
+  </div>
 </div>

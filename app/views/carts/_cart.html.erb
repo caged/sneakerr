@@ -1,0 +1,3 @@
+<%= turbo_frame_tag @cart do %>
+  <%= number_to_currency(@cart.total_price) %>
+<% end %>
