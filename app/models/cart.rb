@@ -3,6 +3,10 @@ class Cart < ApplicationRecord
   has_many :line_items, dependent: :destroy 
   has_many :sneakers, through: :line_items 
 
+  def sneaker_count(sneaker)
+    line_items.find_by(sneaker_id: sneaker.id)&.quantity || 0
+  end
+
   def add_sneaker(sneaker)
     item = find_item(sneaker)
     if item 
@@ -19,7 +23,7 @@ class Cart < ApplicationRecord
     if item 
       item.decrement(:quantity) if item.quantity > 0 
     end 
-    item.destroy if item quanity == 0 
+    item.destroy if item.quantity == 0 
     item
   end
 

@@ -1,0 +1,11 @@
+<div class="flex gap-5 p-2">
+  <div class="bg-gray-100 px-2 rounded">
+    <%= line_item.quantity  %>
+  </div>
+  <div>
+    <%= line_item.sneaker.name %>
+  </div>
+  <div class="ml-auto text-green-600">
+    <%= number_to_currency line_item.total_price %>
+  </div>
+</div>

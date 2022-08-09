@@ -3,7 +3,7 @@ class SneakersController < AuthedController
 
   # GET /sneakers or /sneakers.json
   def index
-    @sneakers = Sneaker.all
+    @sneakers = Sneaker.order(:created_at)
   end
 
   # GET /sneakers/1 or /sneakers/1.json

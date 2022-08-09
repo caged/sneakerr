@@ -1,4 +1,7 @@
-<div id="<%= dom_id sneaker %>" class="border border-gray-300 rounded-lg">
+<div id="<%= dom_id sneaker %>" class="border border-gray-300 rounded-lg relative">
+  <%= turbo_frame_tag dom_id(sneaker, :items_in_cart) do %>
+    <%= render partial: 'count', locals: { sneaker: sneaker } %>
+  <% end %>
   <%= link_to sneaker do %>
     <div class="p-2 rounded-t-lg bg-white">
       <%= image_tag sneaker.image, class: 'rounded mx-auto' %>

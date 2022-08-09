@@ -1,0 +1,5 @@
+<span class="absolute right-2 top-2 flex gap-2 bg-gray-700 text-gray-300 text-xs rounded-full px-2 py-1 leading-none">
+  <%= button_to '+', add_to_cart_path(sneaker), method: :post, class: 'font-bold hover:text-green-500' %>
+  <span class="text-white"><%= @cart.sneaker_count(sneaker) %></span>
+  <%= button_to '-', remove_from_cart_path(sneaker), method: :delete, class: 'font-bold hover:text-white' %>
+</span>
