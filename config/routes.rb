@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :reviews
   get 'carts/line_items'
   resources :sneakers
   post 'site/add', as: :add
