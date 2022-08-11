@@ -1,4 +1,5 @@
-class ReviewsController < ApplicationController
+class ReviewsController < AuthedController
+  before_action :set_sneaker
   before_action :set_review, only: %i[ show edit update destroy ]
 
   # GET /reviews or /reviews.json
@@ -58,6 +59,10 @@ class ReviewsController < ApplicationController
   end
 
   private
+
+    def set_sneaker
+      @sneaker = Sneaker.find(params[:sneaker_id])
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_review
       @review = Review.find(params[:id])

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :reviews
-  get 'carts/line_items'
-  resources :sneakers
+  resources :sneakers do 
+    resources :reviews
+  end
   post 'site/add', as: :add
   post 'site/remove', as: :remove
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
