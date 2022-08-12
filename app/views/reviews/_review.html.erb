@@ -1,21 +1,9 @@
-<div id="<%= dom_id review %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">User:</strong>
-    <%= review.user_id %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Sneaker:</strong>
-    <%= review.sneaker_id %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Body:</strong>
+<div id="<%= dom_id review %>" class="text-xs py-2 border-b border-gray-100">
+  <h3 class="font-bold">Posted at <%= review.created_at.strftime('%I:%M:%S') %></h3>
+  <div class=" text-gray-500">
+    <span class="text-yellow-600 font-bold">
+      <%= review.rating %>&star;
+    </span> -
     <%= review.body %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Rating:</strong>
-    <%= review.rating %>
-  </p>
+  </div>
 </div>

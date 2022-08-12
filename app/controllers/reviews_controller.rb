@@ -22,15 +22,15 @@ class ReviewsController < AuthedController
 
   # POST /reviews or /reviews.json
   def create
-    @review = Review.new(review_params)
+    @review = @sneaker.reviews.new(review_params)
+    @review.user = current_user 
 
     respond_to do |format|
+      format.turbo_stream
       if @review.save
-        format.html { redirect_to review_url(@review), notice: "Review was successfully created." }
-        format.json { render :show, status: :created, location: @review }
+        format.html { redirect_to sneaker_review_url(@sneaker, @review), notice: "Review was successfully created." }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @review.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -63,6 +63,7 @@ class ReviewsController < AuthedController
     def set_sneaker
       @sneaker = Sneaker.find(params[:sneaker_id])
     end
+    
     # Use callbacks to share common setup or constraints between actions.
     def set_review
       @review = Review.find(params[:id])
@@ -70,6 +71,6 @@ class ReviewsController < AuthedController
 
     # Only allow a list of trusted parameters through.
     def review_params
-      params.require(:review).permit(:user_id, :sneaker_id, :body, :rating)
+      params.require(:review).permit(:body, :rating)
     end
 end
