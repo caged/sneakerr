@@ -1,0 +1,6 @@
+<% if @review.persisted? %>
+  <%= turbo_stream.update(dom_id(@sneaker, :review_form), partial: 'form', locals: {review: Review.new}) %>
+  <%= turbo_stream.append(dom_id(@sneaker, :reviews), partial: 'review', locals: {review: @review}) %>
+<% else %>
+  <%= turbo_stream.update(dom_id(@sneaker, :review_form), partial: 'form', locals: {review: @review}) %>
+<% end %>
