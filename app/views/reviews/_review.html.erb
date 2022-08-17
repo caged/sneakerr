@@ -1,21 +1,14 @@
-<div id="<%= dom_id review %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">User:</strong>
-    <%= review.user_id %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Sneaker:</strong>
-    <%= review.sneaker_id %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Body:</strong>
-    <%= review.body %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Rating:</strong>
-    <%= review.rating %>
-  </p>
-</div>
+<%= turbo_frame_tag dom_id(review) do %>
+  <div class="py-5 border-b border-gray-100 text-sm">
+    <h3 class="font-bold"><%= review.created_at.to_fs(:long_ordinal) %></h3>
+    <div class="text-gray-700">
+      <%= review.body %>
+    </div>
+    <div class="flex gap-5 mt-2">
+      <% if review.user == current_user %>
+        <%= link_to 'Edit', edit_sneaker_review_path(review.sneaker, review), class: 'text-gray-500' %>
+        <%= button_to 'Delete', sneaker_review_path(review.sneaker, review), method: :delete, class: 'text-red-500' %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
